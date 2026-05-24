@@ -1,0 +1,610 @@
+.siga-site,
+.siga-block {
+  --siga-ink: #171717;
+  --siga-muted: #69645e;
+  --siga-line: #e8e2db;
+  --siga-paper: #fffaf4;
+  --siga-white: #ffffff;
+  --siga-green: #4f8f7a;
+  --siga-coral: #d95f54;
+  --siga-yellow: #f3be55;
+  --siga-shadow: 0 22px 60px rgba(36, 31, 26, .12);
+  color: var(--siga-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.55;
+}
+
+.siga-site,
+.siga-block,
+.siga-hero,
+.siga-detail-hero {
+  background: var(--siga-white);
+}
+
+.siga-site *,
+.siga-block * {
+  box-sizing: border-box;
+}
+
+.siga-page {
+  background: #ffffff;
+  margin: 0;
+}
+
+.siga-main {
+  padding-top: 86px;
+}
+
+.siga-container {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 24px;
+}
+
+.siga-fixed-nav {
+  background: rgba(255, 255, 255, .94);
+  border-bottom: 1px solid var(--siga-line);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .05);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 40;
+}
+
+.siga-nav-inner {
+  align-items: center;
+  display: flex;
+  gap: 22px;
+  height: 86px;
+  justify-content: space-between;
+}
+
+.siga-brand {
+  align-items: center;
+  color: var(--siga-ink);
+  display: inline-flex;
+  gap: 12px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.siga-logo {
+  border-radius: 999px;
+  height: 54px;
+  object-fit: cover;
+  width: 54px;
+}
+
+.siga-brand-text {
+  display: grid;
+  font-size: 13px;
+  line-height: 1.15;
+  min-width: 0;
+}
+
+.siga-brand-text strong {
+  font-size: 16px;
+}
+
+.siga-nav-links {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.siga-nav-links a,
+.siga-search-toggle,
+.siga-btn {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.siga-nav-links a,
+.siga-search-toggle {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--siga-ink);
+}
+
+.siga-search-toggle {
+  cursor: pointer;
+  font: inherit;
+}
+
+.siga-nav-links a:hover,
+.siga-search-toggle:hover {
+  border-color: var(--siga-line);
+  background: var(--siga-paper);
+}
+
+.siga-floating-nav {
+  align-items: center;
+  background: rgba(23, 23, 23, .94);
+  border-radius: 999px;
+  box-shadow: var(--siga-shadow);
+  display: flex;
+  gap: 4px;
+  left: 18px;
+  opacity: 0;
+  padding: 7px;
+  pointer-events: none;
+  position: fixed;
+  top: 104px;
+  transform: translateY(-10px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 39;
+}
+
+.siga-floating-nav.siga-is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.siga-floating-nav a,
+.siga-floating-nav button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  height: 38px;
+  justify-content: center;
+  padding: 0 12px;
+  text-decoration: none;
+}
+
+.siga-floating-nav a:hover,
+.siga-floating-nav button:hover {
+  background: rgba(255, 255, 255, .14);
+}
+
+.siga-sr-only {
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.siga-search-panel {
+  background: #fff;
+  border: 1px solid var(--siga-line);
+  border-radius: 18px;
+  box-shadow: var(--siga-shadow);
+  display: none;
+  max-width: 520px;
+  padding: 16px;
+  position: fixed;
+  right: 24px;
+  top: 102px;
+  width: calc(100vw - 48px);
+  z-index: 45;
+}
+
+.siga-search-panel.siga-is-open {
+  display: block;
+}
+
+.siga-search-panel label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.siga-search-panel input {
+  border: 1px solid var(--siga-line);
+  border-radius: 12px;
+  font: inherit;
+  min-height: 44px;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.siga-search-results {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.siga-search-results a {
+  border-radius: 10px;
+  color: var(--siga-ink);
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+.siga-search-results a:hover {
+  background: var(--siga-paper);
+}
+
+.siga-hero {
+  overflow: hidden;
+  padding: 58px 0 72px;
+}
+
+.siga-hero-grid {
+  align-items: center;
+  display: grid;
+  gap: 42px;
+  grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+}
+
+.siga-kicker {
+  color: var(--siga-green);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.siga-title {
+  font-size: clamp(38px, 6vw, 76px);
+  letter-spacing: 0;
+  line-height: .96;
+  margin: 0 0 22px;
+}
+
+.siga-lede {
+  color: var(--siga-muted);
+  font-size: 19px;
+  margin: 0 0 26px;
+  max-width: 650px;
+}
+
+.siga-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.siga-btn {
+  border: 1px solid var(--siga-ink);
+  color: var(--siga-ink);
+}
+
+.siga-btn-primary {
+  background: var(--siga-ink);
+  color: #fff;
+}
+
+.siga-hero-media {
+  border-radius: 8px;
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.siga-hero-media img,
+.siga-card-image img,
+.siga-detail-media img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.siga-hero-note {
+  background: #fff;
+  border-radius: 8px;
+  bottom: 20px;
+  box-shadow: var(--siga-shadow);
+  left: 20px;
+  max-width: 330px;
+  padding: 18px;
+  position: absolute;
+}
+
+.siga-section {
+  padding: 74px 0;
+}
+
+.siga-section-alt {
+  background: var(--siga-paper);
+}
+
+.siga-section-head {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.siga-section-head h2 {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1;
+  margin: 0;
+}
+
+.siga-section-head p {
+  color: var(--siga-muted);
+  margin: 0;
+  max-width: 520px;
+}
+
+.siga-services-row,
+.siga-services-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.siga-services-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.siga-services-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.siga-card {
+  background: #fff;
+  border: 1px solid var(--siga-line);
+  border-radius: 8px;
+  color: var(--siga-ink);
+  display: grid;
+  min-height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.siga-card:hover {
+  box-shadow: var(--siga-shadow);
+  transform: translateY(-2px);
+}
+
+.siga-card-image {
+  aspect-ratio: 16 / 10;
+  background: #eee7df;
+  overflow: hidden;
+}
+
+.siga-card-body {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.siga-card h3 {
+  font-size: 20px;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.siga-card p {
+  color: var(--siga-muted);
+  margin: 0;
+}
+
+.siga-tag {
+  color: var(--siga-coral);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.siga-contact-grid {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr);
+}
+
+.siga-info-box,
+.siga-form-shell {
+  background: #fff;
+  border: 1px solid var(--siga-line);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.siga-info-list {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0 0;
+}
+
+.siga-info-list div {
+  border-top: 1px solid var(--siga-line);
+  padding-top: 14px;
+}
+
+.siga-form-placeholder {
+  align-items: center;
+  background: var(--siga-paper);
+  border: 1px dashed #b9aea1;
+  border-radius: 8px;
+  color: var(--siga-muted);
+  display: flex;
+  min-height: 280px;
+  padding: 24px;
+}
+
+.siga-detail-hero {
+  padding: 54px 0 30px;
+}
+
+.siga-detail-grid {
+  align-items: start;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, .95fr) minmax(300px, .75fr);
+}
+
+.siga-detail-content {
+  font-size: 18px;
+}
+
+.siga-detail-content h2,
+.siga-detail-content h3 {
+  line-height: 1.12;
+  margin: 30px 0 12px;
+}
+
+.siga-detail-content ul {
+  padding-left: 22px;
+}
+
+.siga-detail-media {
+  background: var(--siga-paper);
+  border-radius: 8px;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.siga-footer {
+  background: #171717;
+  color: #fff;
+  padding: 52px 0 32px;
+}
+
+.siga-footer-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1.2fr 1fr 1fr;
+}
+
+.siga-footer a {
+  color: #fff;
+}
+
+.siga-footer h2,
+.siga-footer h3,
+.siga-footer p {
+  margin-top: 0;
+}
+
+.siga-footer p,
+.siga-footer li {
+  color: rgba(255, 255, 255, .76);
+}
+
+.siga-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.siga-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  color: rgba(255, 255, 255, .64);
+  margin-top: 34px;
+  padding-top: 18px;
+}
+
+@media (max-width: 920px) {
+  .siga-main {
+    padding-top: 74px;
+  }
+
+  .siga-nav-inner {
+    height: 74px;
+  }
+
+  .siga-brand-text span {
+    display: none;
+  }
+
+  .siga-nav-links {
+    gap: 2px;
+  }
+
+  .siga-nav-links a,
+  .siga-search-toggle {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .siga-hero-grid,
+  .siga-contact-grid,
+  .siga-detail-grid,
+  .siga-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .siga-services-row,
+  .siga-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .siga-section-head {
+    display: grid;
+  }
+}
+
+@media (max-width: 620px) {
+  .siga-container {
+    padding: 0 16px;
+  }
+
+  .siga-logo {
+    height: 44px;
+    width: 44px;
+  }
+
+  .siga-brand-text strong {
+    font-size: 13px;
+  }
+
+  .siga-nav-links a {
+    display: none;
+  }
+
+  .siga-search-toggle {
+    min-width: 42px;
+    padding: 8px;
+  }
+
+  .siga-floating-nav {
+    bottom: 14px;
+    left: 50%;
+    top: auto;
+    transform: translate(-50%, 10px);
+  }
+
+  .siga-floating-nav.siga-is-visible {
+    transform: translate(-50%, 0);
+  }
+
+  .siga-floating-nav a,
+  .siga-floating-nav button {
+    padding: 0 10px;
+  }
+
+  .siga-title {
+    font-size: 40px;
+  }
+
+  .siga-hero {
+    padding-top: 38px;
+  }
+
+  .siga-hero-media {
+    min-height: 320px;
+  }
+
+  .siga-hero-note {
+    left: 14px;
+    right: 14px;
+  }
+
+  .siga-services-row,
+  .siga-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
