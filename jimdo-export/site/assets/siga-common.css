@@ -417,6 +417,106 @@
   margin: 0;
 }
 
+.siga-fitness-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.siga-fitness-main {
+  min-height: 0;
+}
+
+.siga-course-toggle {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--siga-line);
+  border-radius: 999px;
+  color: var(--siga-ink);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 14px;
+  width: max-content;
+}
+
+.siga-course-toggle:hover {
+  box-shadow: 0 10px 24px rgba(36, 31, 26, .1);
+}
+
+.siga-course-toggle-icon {
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  display: block;
+  height: 8px;
+  transform: rotate(-135deg);
+  transition: transform .18s ease;
+  width: 8px;
+}
+
+.siga-course-toggle[aria-expanded="false"] .siga-course-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.siga-course-previews {
+  display: grid;
+  gap: 10px;
+}
+
+.siga-js .siga-course-previews[hidden] {
+  display: none;
+}
+
+.siga-course-preview {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--siga-line);
+  border-radius: 8px;
+  color: var(--siga-ink);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 76px minmax(0, 1fr);
+  min-width: 0;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.siga-course-preview:hover {
+  box-shadow: 0 12px 30px rgba(36, 31, 26, .1);
+}
+
+.siga-course-preview-image {
+  aspect-ratio: 1;
+  background: #eee7df;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.siga-course-preview-image img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.siga-course-preview strong,
+.siga-course-preview small {
+  display: block;
+  min-width: 0;
+}
+
+.siga-course-preview small {
+  color: var(--siga-muted);
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+
 .siga-tag {
   color: var(--siga-coral);
   font-size: 12px;
@@ -690,6 +790,14 @@
   .siga-services-row,
   .siga-services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .siga-course-toggle {
+    width: 100%;
+  }
+
+  .siga-course-preview {
+    grid-template-columns: 68px minmax(0, 1fr);
   }
 
   .siga-detail-hero {

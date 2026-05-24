@@ -38,6 +38,27 @@
     item.innerHTML = icons.back + '<span class="siga-back-label">' + label + '</span>';
   });
 
+  document.querySelectorAll("[data-siga-course-toggle]").forEach(function (button) {
+    var panelId = button.getAttribute("aria-controls");
+    var panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+    var label = button.querySelector("span");
+    var closedText = button.getAttribute("data-siga-closed-label") || (label ? label.textContent : "");
+    var openText = button.getAttribute("data-siga-open-label") || closedText.replace("Mostra", "Nascondi");
+    var setOpen = function (isOpen) {
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      panel.hidden = !isOpen;
+      if (label) label.textContent = isOpen ? openText : closedText;
+    };
+    button.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+    setOpen(false);
+    button.addEventListener("click", function () {
+      var isOpen = button.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+  });
+
   var heroCopy = document.querySelector(".siga-hero-copy, .siga-hero-grid > div:first-child");
   if (heroCopy) heroCopy.setAttribute("data-siga-reveal", "");
 
@@ -84,9 +105,9 @@
     ["Counseling", "services/counseling.html", "/servizi/counseling/"],
     ["Dietistica", "services/dietistica.html", "/servizi/dietistica/"],
     ["Fitness", "services/fitness.html", "/servizi/fitness/"],
-    ["Piloga", "services/fitness-piloga.html", "/servizi/fitness-piloga/"],
-    ["Body Sculpture", "services/fitness-body-sculpture.html", "/servizi/fitness-body-sculpture/"],
-    ["Ginnastica posturale", "services/fitness-ginnastica-posturale.html", "/servizi/fitness-ginnastica-posturale/"]
+    ["Piloga", "services/fitness-piloga.html", "/servizi/fitness/piloga/"],
+    ["Body Sculpture", "services/fitness-body-sculpture.html", "/servizi/fitness/body-sculpture/"],
+    ["Ginnastica posturale", "services/fitness-ginnastica-posturale.html", "/servizi/fitness/ginnastica-posturale/"]
   ];
 
   function isLocalPreview() {

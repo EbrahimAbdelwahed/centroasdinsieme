@@ -57,7 +57,11 @@ Nella pagina Contatti:
 
 - Email: `[INSERIRE EMAIL]`
 - Indirizzo: `[INSERIRE INDIRIZZO]`
-- Fitness, Piloga, Body Sculpture, Ginnastica posturale: `[TESTO DA CONFERMARE]`
+
+## Area Fitness
+
+- Fitness, Piloga, Body Sculpture e Ginnastica posturale sono stati completati con testi e immagini fornite.
+- Nella pagina Servizi, Fitness include il menu corsi espandibile: Piloga, Body Sculpture, Ginnastica posturale.
 
 ## Note tecniche
 
