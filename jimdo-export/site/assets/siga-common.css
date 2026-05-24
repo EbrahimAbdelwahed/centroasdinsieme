@@ -133,7 +133,7 @@
   gap: 4px;
   left: 18px;
   opacity: 0;
-  padding: 7px;
+  padding: 6px;
   pointer-events: none;
   position: fixed;
   top: 104px;
@@ -158,15 +158,37 @@
   cursor: pointer;
   display: inline-flex;
   font: inherit;
-  height: 38px;
+  font-size: 0;
+  height: 36px;
   justify-content: center;
-  padding: 0 12px;
+  padding: 0;
   text-decoration: none;
+  width: 36px;
 }
 
 .siga-floating-nav a:hover,
 .siga-floating-nav button:hover {
   background: rgba(255, 255, 255, .14);
+}
+
+.siga-floating-nav a:focus-visible,
+.siga-floating-nav button:focus-visible {
+  background: rgba(255, 255, 255, .18);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.siga-nav-icon,
+.siga-back-icon {
+  display: block;
+  fill: none;
+  flex: 0 0 auto;
+  height: 19px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 19px;
 }
 
 .siga-sr-only {
@@ -244,6 +266,10 @@
   grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
 }
 
+.siga-hero-copy {
+  min-width: 0;
+}
+
 .siga-kicker {
   color: var(--siga-green);
   font-size: 13px;
@@ -285,6 +311,7 @@
 
 .siga-hero-media {
   border-radius: 8px;
+  margin: 0;
   min-height: 420px;
   overflow: hidden;
   position: relative;
@@ -463,8 +490,21 @@
 .siga-detail-media {
   background: var(--siga-paper);
   border-radius: 8px;
+  margin: 0;
   min-height: 300px;
   overflow: hidden;
+}
+
+.siga-detail-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.siga-btn-back {
+  gap: 7px;
 }
 
 .siga-footer {
@@ -537,6 +577,10 @@
     grid-template-columns: 1fr;
   }
 
+  .siga-detail-media {
+    order: -1;
+  }
+
   .siga-services-row,
   .siga-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -572,7 +616,9 @@
 
   .siga-floating-nav {
     bottom: 14px;
+    gap: 2px;
     left: 50%;
+    max-width: calc(100vw - 28px);
     top: auto;
     transform: translate(-50%, 10px);
   }
@@ -583,7 +629,13 @@
 
   .siga-floating-nav a,
   .siga-floating-nav button {
-    padding: 0 10px;
+    height: 34px;
+    width: 34px;
+  }
+
+  .siga-nav-icon {
+    height: 18px;
+    width: 18px;
   }
 
   .siga-title {
@@ -591,20 +643,102 @@
   }
 
   .siga-hero {
-    padding-top: 38px;
+    padding: 18px 0 56px;
+  }
+
+  .siga-hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .siga-hero-copy,
+  .siga-hero-grid > div:first-child {
+    order: 2;
+    width: 100%;
+  }
+
+  .siga-js .siga-hero-copy[data-siga-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+
+  .siga-js .siga-hero-copy[data-siga-reveal].siga-is-revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .siga-hero-media {
-    min-height: 320px;
+    aspect-ratio: 4 / 5;
+    height: calc(100svh - 92px);
+    margin: 0 -16px;
+    max-height: 760px;
+    min-height: 560px;
+    order: 1;
+    width: calc(100% + 32px);
   }
 
   .siga-hero-note {
-    left: 14px;
-    right: 14px;
+    bottom: 12px;
+    font-size: 14px;
+    left: 12px;
+    padding: 14px;
+    right: 12px;
   }
 
   .siga-services-row,
   .siga-services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .siga-detail-hero {
+    padding: 26px 0 24px;
+  }
+
+  .siga-detail-grid {
+    gap: 22px;
+  }
+
+  .siga-detail-content {
+    font-size: 16px;
+  }
+
+  .siga-detail-media {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .siga-detail-actions {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .siga-detail-actions .siga-btn {
+    font-size: 13px;
+    min-height: 38px;
+    padding: 8px 11px;
+    white-space: nowrap;
+  }
+
+  .siga-detail-actions .siga-btn-primary {
+    min-width: 0;
+  }
+
+  .siga-detail-actions .siga-btn-back {
+    min-width: 42px;
+    padding-inline: 10px;
+  }
+
+  .siga-detail-actions .siga-btn-back .siga-back-label {
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 }

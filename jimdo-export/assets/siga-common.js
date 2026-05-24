@@ -1,6 +1,63 @@
 (function () {
+  document.documentElement.classList.add("siga-js");
+
   var root = document.querySelector(".siga-site, .siga-block");
   if (!root) return;
+
+  var icons = {
+    home: '<svg class="siga-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>',
+    services: '<svg class="siga-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path><path d="M8 5v14"></path></svg>',
+    contacts: '<svg class="siga-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"></path><path d="m4 7 8 6 8-6"></path></svg>',
+    search: '<svg class="siga-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>',
+    back: '<svg class="siga-back-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-2"></path></svg>'
+  };
+
+  function normalizeLabel(text) {
+    return (text || "").toLowerCase().replace(/\s+/g, " ").trim();
+  }
+
+  function iconForLabel(label) {
+    if (label.indexOf("home") !== -1) return icons.home;
+    if (label.indexOf("servizi") !== -1 || label.indexOf("fitness") !== -1) return icons.services;
+    if (label.indexOf("contatti") !== -1) return icons.contacts;
+    if (label.indexOf("cerca") !== -1) return icons.search;
+    if (label.indexOf("torna") !== -1) return icons.back;
+    return "";
+  }
+
+  document.querySelectorAll(".siga-floating-nav a, .siga-floating-nav button").forEach(function (item) {
+    var label = item.getAttribute("aria-label") || normalizeLabel(item.textContent);
+    var icon = iconForLabel(label);
+    if (!icon) return;
+    item.setAttribute("aria-label", label.charAt(0).toUpperCase() + label.slice(1));
+    item.innerHTML = icon + '<span class="siga-sr-only">' + label + '</span>';
+  });
+
+  document.querySelectorAll(".siga-btn-back").forEach(function (item) {
+    var label = item.textContent.trim() || "Torna indietro";
+    item.innerHTML = icons.back + '<span class="siga-back-label">' + label + '</span>';
+  });
+
+  var heroCopy = document.querySelector(".siga-hero-copy, .siga-hero-grid > div:first-child");
+  if (heroCopy) heroCopy.setAttribute("data-siga-reveal", "");
+
+  var revealItems = document.querySelectorAll(".siga-hero-copy[data-siga-reveal]");
+  if (!("IntersectionObserver" in window)) {
+    revealItems.forEach(function (item) {
+      item.classList.add("siga-is-revealed");
+    });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("siga-is-revealed");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.22 });
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+  }
 
   var floating = document.querySelector(".siga-floating-nav");
   function updateFloating() {
